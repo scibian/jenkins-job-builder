@@ -1,0 +1,95 @@
+Source: jenkins-job-builder
+Section: python
+Priority: optional
+Maintainer: Debian OpenStack <team+openstack@tracker.debian.org>
+Uploaders:
+ Thomas Goirand <zigo@debian.org>,
+ Mattia Rizzolo <mattia@debian.org>,
+ Paul Belanger <paul.belanger@polybeacon.com>,
+Build-Depends:
+ debhelper (>= 12.8~),
+ debhelper-compat (= 13),
+ dh-python,
+ python3-all,
+ python3-pbr,
+ python3-setuptools,
+Build-Depends-Indep:
+ dh-sequence-python3,
+ dh-sequence-sphinxdoc <!nodoc>,
+ python3-fasteners,
+ python3-fixtures <!nocheck>,
+ python3-jenkins (>= 0.4.15),
+ python3-jinja2,
+ python3-mock <!nocheck>,
+ python3-sphinx <!nodoc>,
+ python3-sphinxcontrib.programoutput <!nodoc>,
+ python3-stestr <!nocheck>,
+ python3-stevedore,
+ python3-testscenarios <!nocheck>,
+ python3-testtools <!nocheck>,
+ python3-yaml,
+ subunit <!nocheck>,
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: http://ci.openstack.org/jenkins-job-builder
+Vcs-Browser: https://salsa.debian.org/openstack-team/third-party/jenkins-job-builder
+Vcs-Git: https://salsa.debian.org/openstack-team/third-party/jenkins-job-builder.git
+
+Package: jenkins-job-builder
+Architecture: all
+Section: misc
+Depends:
+ python3-jenkins-job-builder (= ${binary:Version}),
+ ${misc:Depends},
+ ${python3:Depends},
+Breaks:
+ python3-jenkins-job-builder (<< 2.0.3-3~),
+Replaces:
+ python3-jenkins-job-builder (<< 2.0.3-3~),
+Description: Configure Jenkins using YAML files - metapackage
+ Jenkins Job Builder takes simple descriptions of Jenkins jobs in YAML format
+ and uses them to configure Jenkins. You can keep your job descriptions in
+ human readable text format in a version control system to make changes and
+ auditing easier. It also has a flexible template system, so creating many
+ similarly configured jobs is easy.
+ .
+ Metapackage to install the Python 2 or 3 version of jenkins-job-builder.
+
+Package: jenkins-job-builder-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends:
+ ${misc:Depends},
+ ${sphinxdoc:Depends},
+Description: Configure Jenkins using YAML files - doc
+ Jenkins Job Builder takes simple descriptions of Jenkins jobs in YAML format
+ and uses them to configure Jenkins. You can keep your job descriptions in
+ human readable text format in a version control system to make changes and
+ auditing easier. It also has a flexible template system, so creating many
+ similarly configured jobs is easy.
+ .
+ This package contains the documentation.
+
+Package: python3-jenkins-job-builder
+Architecture: all
+Depends:
+ python3-fasteners,
+ python3-jenkins (>= 0.4.15),
+ python3-jinja2,
+ python3-pbr,
+ python3-pkg-resources,
+ python3-six,
+ python3-stevedore,
+ python3-yaml,
+ ${misc:Depends},
+ ${python3:Depends},
+ ${sphinxdoc:Depends},
+Description: Configure Jenkins using YAML files - Python 3.x
+ Jenkins Job Builder takes simple descriptions of Jenkins jobs in YAML format
+ and uses them to configure Jenkins. You can keep your job descriptions in
+ human readable text format in a version control system to make changes and
+ auditing easier. It also has a flexible template system, so creating many
+ similarly configured jobs is easy.
+ .
+ This package contains the Python 3.x module.

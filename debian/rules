@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+
+UPSTREAM_GIT := https://github.com/openstack-infra/jenkins-job-builder.git
+-include /usr/share/openstack-pkg-tools/pkgos.make
+
+LAST_CHANGE = $(shell dpkg-parsechangelog -S Date)
+BUILD_DATE  = $(shell LC_ALL=C date -u "+%B %d, %Y" -d "$(LAST_CHANGE)")
+SPHINXOPTS := -D html_last_updated_fmt="$(BUILD_DATE)"
+
+PYBUILD_NAME = jenkins-job-builder
+PYBUILD_TEST_ARGS = PYTHON={interpreter} stestr run
+PYBUILD_AFTER_TEST = rm -rfv .stestr/
+export PYBUILD_NAME PYBUILD_TEST_ARGS PYBUILD_AFTER_TEST
+
+
+%:
+	dh $@ --buildsystem pybuild
+
+override_dh_auto_test:
+	PYBUILD_SYSTEM=custom dh_auto_test
+
+execute_after_dh_auto_install:
+	mkdir -p debian/jenkins-job-builder/usr/
+	mv -v debian/python3-jenkins-job-builder/usr/bin debian/jenkins-job-builder/usr/
+
+override_dh_sphinxdoc:
+ifeq (,$(findstring nodoc, $(DEB_BUILD_OPTIONS)))
+	PYTHONPATH=$(CURDIR) PATH=$(PATH):$(CURDIR)/debian/jenkins-job-builder/usr/bin/ PYTHON=python3 python3 -m sphinx $(SPHINXOPTS) -b html doc/source debian/jenkins-job-builder-doc/usr/share/doc/jenkins-job-builder-doc/html
+	dh_sphinxdoc -O--buildsystem=python_distutils
+endif
+
+override_dh_installman:
+ifeq (,$(findstring nodoc, $(DEB_BUILD_OPTIONS)))
+	PYTHONPATH=$(CURDIR) PATH=$(PATH):$(CURDIR)/debian/jenkins-job-builder/usr/bin/ PYTHON=python3 python3 -m sphinx $(SPHINXOPTS) -b man doc/source doc/build/man
+	dh_installman
+endif

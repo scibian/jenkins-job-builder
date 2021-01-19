@@ -1,0 +1,11 @@
+Test-Command: set -eu ; cp -r tests .stestr.conf setup.cfg "$AUTOPKGTEST_TMP/" ; cd "$AUTOPKGTEST_TMP" ; for py in $(py3versions -s); do echo "Testing with $py:" ; PYTHON="$py" stestr run ; done
+Depends:
+ python3-all,
+ python3-jenkins-job-builder,
+ python3-mock,
+ python3-stestr,
+ python3-stevedore,
+ python3-testscenarios,
+ python3-testtools,
+ python3-yaml,
+ subunit,

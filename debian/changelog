@@ -1,0 +1,363 @@
+jenkins-job-builder (3.8.0-1) unstable; urgency=medium
+
+  * New upstream version 3.8.0.
+  * Add missing Test-Dependency on python3-mock.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Tue, 19 Jan 2021 23:49:09 +0100
+
+jenkins-job-builder (3.7.0-1) unstable; urgency=medium
+
+  * New upstream version 3.7.0.
+  * Drop patch applied upstream.
+  * Run the whole testsuite again, now that it passes.
+  * Update d/copyright.
+  * Bump debhelper compat level to 13.
+    + Drop override_dh_missing, now default.
+  * Bump Standards-version to 4.5.1, no changes needed.
+  * Add an autopkgtest.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Tue, 19 Jan 2021 06:57:39 +0100
+
+jenkins-job-builder (3.2.0-1) unstable; urgency=medium
+
+  * New upstream version 3.2.0.
+  * Add patch to re-order some XML attributes, so they don't actually change
+    position between Python 3.7 and 3.8 and therefore fix test failure.
+  * Claim some copyright over debian/*.
+  * Use the more standard pybuild build system instead of tools from pkg-os
+    during the build.
+  * Fix cleaning of the built directory.
+  * Fix build the <nodoc> build profile/option (typoed as "nodocs" previously).
+  * Bump debhelper compat level to 12.
+  * Bump Standards-Version to 4.5.0, no changes needed.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Mon, 03 Feb 2020 23:56:22 +0100
+
+jenkins-job-builder (2.9.1-1) unstable; urgency=medium
+
+  * New upstream version 2.9.1.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Mon, 10 Dec 2018 10:02:57 +0100
+
+jenkins-job-builder (2.8.0-1) unstable; urgency=medium
+
+  * New upstream version 2.8.0.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Sun, 02 Dec 2018 16:36:17 +0100
+
+jenkins-job-builder (2.7.0-1) unstable; urgency=medium
+
+  * New upstream version 2.7.0.
+  * Use the new debhelper-compat(=11) notation and drop d/compat.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Wed, 07 Nov 2018 13:55:36 +0100
+
+jenkins-job-builder (2.5.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Running wrap-and-sort -bast
+  * d/control: Use team+openstack@tracker.debian.org as maintainer
+
+  [ Mattia Rizzolo ]
+  * New upstream version 2.5.0.  Closes: #905917
+  * Mark jenkins-job-builder-doc as Multi-Arch:foreign (from the m-a hinter).
+  * Add ~ to Breaks/Replaces to cater for backports.
+  * Add the upstream signing key.
+  * d/watch: check the upstream gpg signature.
+  * Add myself to uploaders.
+  * Remove patch applied upstream.
+  * Change build-dep from testrepository to python3-stestr.
+  * Set Rules-Requires-Root:no.
+  * Bump Standards-Version to 4.2.1.
+
+  [ Héctor Orón Martínez ]
+  * Enforce nocheck build profile in build dependencies.
+    - This change cuts down dependency chain when tests are disabled, allowing
+      easier backports for old stable releases.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Sun, 23 Sep 2018 12:40:54 +0200
+
+jenkins-job-builder (2.0.3-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Mattia Rizzolo ]
+  * Remove the old jenkins-jobs alternatives in preinst, to avoid a warning
+    message during package upgrade.
+
+  [ Luca Pierri ]
+  * Added patch to fix spelling errors.
+  * Removed nowadays wrong patch (*.py scripts  were not found).
+  * Specified correct PATH and PYTHONPATH in override_dh_installman, so sphinx
+    can find new built jenkins-jobs binary (Closes: #884002).
+  * Added missing call to dh_installman to actually install the man page.
+  * Moved the jenkins-jobs(1) manpage from -doc binary to the main
+    jenkins-job-builder binary.
+  * Cleaned up pointless dh overrides where we would have been following the
+    dh sequence anyway.
+  * Move the jenkins-jobs script into the main jenkins-job-builder binary.
+  * Upgraded d/compat version to 11 as well as the dependency in d/control.
+  * Removed unused bsd-2-clause from d/copyright.
+  * Upgraded Standards-version in d/control.
+  * Moved jenkins-job-builder package from python to misc section.
+
+ -- Luca Pierri <lukepier95@gmail.com>  Sat, 21 Apr 2018 18:14:58 +0200
+
+jenkins-job-builder (2.0.3-2) unstable; urgency=medium
+
+  * Fixed update-alternative handling after Python 2 support removed:
+    remove existing python2-jenkins-job alternative, and do not install
+    any alternative at all (Closes: #895012).
+  * Removed Breaks+Replaces and let users clean the old Python 2 package by
+    themselves.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 06 Apr 2018 10:52:53 +0000
+
+jenkins-job-builder (2.0.3-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https in Format
+  * d/watch: Use https protocol
+  * Removing gbp.conf, not used anymore or should be specified in the
+    developers dotfiles
+  * d/changelog: Remove trailing whitespaces
+
+  [ David Rabel ]
+  * Fix d/gbp.conf.
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Rebased 0001-workaround-programoutput.patch.
+  * Kill support for Python 2.
+  * Standards-Version is now 4.1.3.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 05 Apr 2018 12:39:30 +0000
+
+jenkins-job-builder (2.0.0~b2-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Team upload.
+  * Remove Fathi Boudra from Uploaders (Closes: #879305)
+
+  [ Thomas Goirand ]
+  * Run dh_clean (Closes: 884815).
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 20 Dec 2017 14:20:01 +0100
+
+jenkins-job-builder (2.0.0~b2-1) experimental; urgency=medium
+
+  * Updated VCS URLs.
+  * New upstream release.
+  * Ran wrap-and-sort -bast.
+  * Fixed (build-)depends for this release.
+  * Drop builders-add-publish-over-ssh-support-as-a-build-step.patch.
+  * Standards-Version is now 4.1.1.
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 22 Oct 2017 11:20:29 +0200
+
+jenkins-job-builder (1.6.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Fixing VCS fields.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 03 Aug 2017 22:38:39 +0200
+
+jenkins-job-builder (1.6.1-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Standards-Version is 3.9.8 now (no change)
+  * d/rules: Changed UPSTREAM_GIT protocol to https
+
+  [ Fathi Boudra ]
+  * New upstream release (Closes: #834012).
+  * Remove removes-deprecated-depends.patch - merged upstream.
+  * Add builders-add-publish-over-ssh-support-as-a-build-step.patch
+    'Publish over SSH' plugin is only supported in the publishers.
+    It can also be used as a build step during the build process.
+    https://review.openstack.org/#/c/98437/
+  * Bump python-pbr (build-)depends from 0.8.2 to 1.0.0.
+
+  [ Thomas Goirand ]
+  * Build-Depends on openstack-pkg-tools >= 52~ and use its new facilities.
+  * The binary for generating jobs is now /usr/bin/jenkins-jobs and not
+    jenkins-job-builder, updating maintainer scripts (for update-alternatives)
+    accordingly.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 17 Aug 2016 10:59:59 +0000
+
+jenkins-job-builder (1.4.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Fixed VCS URLs.
+  * Removed 0005-builders-add-publish-over-ssh-support-as-a-build-ste.patch
+    (Closes: #806715)
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Standards-Version: 3.9.7 (no change).
+  * Added myself in debian/copyright.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 30 Mar 2016 09:31:21 +0000
+
+jenkins-job-builder (1.3.0+2015.12.15.git136.959eb4b909-1) unstable; urgency=medium
+
+  * New upstream release, based on commit 959eb4b909:
+    - Fix AttributeError when updating jobs in Python 3 (Closes: #799277).
+  * Refreshed patches.
+  * Bumped python-jenkins (build-)depends to 0.4.11.
+  * Disable 3 stupid tests which are breaking in my sbuild for Jessie:
+    - tests.builder.test_builder.TestCaseTestBuilder.test_plugins_list
+    - tests.builder.test_builder.TestCaseTestBuilder.test_plugins_list_from_jenkins
+    - tests.localyaml.test_localyaml.TestCaseLocalYamlIncludeAnchors.test_multiple_same_anchor_in_multiple_toplevel_yaml
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 15 Dec 2015 10:35:35 +0100
+
+jenkins-job-builder (1.3.0-5) unstable; urgency=medium
+
+  * override_dh_python3 to fix Py3 shebang.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 23 Oct 2015 22:07:20 +0000
+
+jenkins-job-builder (1.3.0-4) unstable; urgency=medium
+
+  [ Fathi Boudra ]
+  * Added myself as Uploader.
+
+  [ Thomas Goirand ]
+  * Fixed upgrade from testing by adding Breaks+Replaces (Closes: #799339).
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 21 Sep 2015 09:11:23 +0000
+
+jenkins-job-builder (1.3.0-2) unstable; urgency=medium
+
+  * Made package reproducible. Thanks to Reiner Herrmann <reiner@reiner-h.de>
+    for his bug report and patch (Closes: #782472).
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 14 Sep 2015 09:43:44 +0000
+
+jenkins-job-builder (1.3.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Rebased patches.
+  * Added missing build-depends: python3-jenkins (>= 0.4.8)
+  * Blacklist better the test_yaml_snippet test.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 28 Aug 2015 07:32:04 +0000
+
+jenkins-job-builder (1.2.0-1) unstable; urgency=medium
+
+  * Taking over maintenance in the OpenStack PKG group:
+    - Changed Maintainer: field, and added myself as Uploader.
+    - Changed VCS fields.
+  * New upstream release.
+  * Fixed some of the debian/copyright (years, debian/* holders).
+  * Fixed (build-)dependencies.
+  * Now running unit tests at build time.
+  * Removed useless X-Python-Version: >= 2.6.
+  * Standards-Version is now 3.9.6.
+  * Removed patched merged upstream:
+    - 0002-general-add-support-for-childCustomWorkspace.patch
+    - 0006-fix-delete-job-command-and-add-tests.patch
+  * Rebased:
+    - 0005-builders-add-publish-over-ssh-support-as-a-build-ste.patch
+  * Removes ordereddict and argparse from requirements.txt
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 22 Aug 2015 15:22:07 +0200
+
+jenkins-job-builder (0.9.0-0.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix deletion of jobs. (Closes: #773642)
+
+ -- Michael Prokop <mika@debian.org>  Mon, 22 Dec 2014 13:42:13 +0100
+
+jenkins-job-builder (0.9.0-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release. (Closes: #763813)
+  * Refresh debian/patches against new upstream version (thanks
+    to Christian Hofstaedtler <zeha@debian.org> for reviewing).
+
+ -- Michael Prokop <mika@debian.org>  Wed, 08 Oct 2014 00:51:26 +0200
+
+jenkins-job-builder (0.8.1-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release.
+  * debian/patches:
+    - drop authorization-property-add-extended-read-support.patch - merged
+    - drop general-add-support-for-childCustomWorkspace.patch - merged
+    - drop matrix-project-add-support-for-dynamic-axis.patch - merged
+    - add 0002-general-add-support-for-childCustomWorkspace.patch
+    - add 0005-builders-add-publish-over-ssh-support-as-a-build-ste.patch
+  * debian/control: bump python-pbr build-dependency to 0.8.2
+
+ -- Fathi Boudra <fabo@debian.org>  Sun, 15 Jun 2014 19:16:53 +0300
+
+jenkins-job-builder (0.8.0-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release. (Closes: #749819)
+  * debian/patches:
+    - drop Fix-doc-error-in-the-testng-publisher.patch
+    - add authorization-property-add-extended-read-support.patch
+    - add general-add-support-for-childCustomWorkspace.patch
+    - add matrix-project-add-support-for-dynamic-axis.patch
+  * debian/control: add python-pbr build-dependency.
+  * debian/rules: export PBR_VERSION to workaround ftbfs caused by pbr.
+
+ -- Fathi Boudra <fabo@debian.org>  Sat, 24 May 2014 14:37:28 +0300
+
+jenkins-job-builder (0.7.0-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release. (Closes: #736869)
+  * debian/control: add python-sphinxcontrib-programoutput build dependency.
+  * debian/patches:
+    - drop 0001-Fixing-documentation.patch - stolen upstream
+    - add Fix-doc-error-in-the-testng-publisher.patch - stolen upstream.
+    - add workaround-programoutput.patch to fix programoutput usage
+       doc/source/installation.rst:81:
+       ERROR: Command u'jenkins-jobs --help' failed:
+       [Errno 2] No such file or directory
+
+ -- Fathi Boudra <fabo@debian.org>  Sun, 11 May 2014 10:34:52 +0300
+
+jenkins-job-builder (0.5.0-2) unstable; urgency=medium
+
+  * Move creation of /usr/bin/jenkins-jobs symlink from debian/rules to
+    .link file.  Closes: #728585.  Thanks to Felix Geyer for the patch.
+  * Add missing dependency on python-pkg-resources.
+
+ -- Tollef Fog Heen <tfheen@debian.org>  Wed, 26 Mar 2014 11:21:55 +0100
+
+jenkins-job-builder (0.5.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #718126)
+  * debian/patches: Merged upstream
+    - 0001-Documentation-fixes-to-make-Sphinx-happy.patch
+    - 0002-Remove-setuptools-git-from-setup.py.patch
+  * debian/patches: Add upstream fixes for packaging
+    - 0001-Fixing-documentation.patch
+
+ -- Paul Belanger <paul.belanger@polybeacon.com>  Sun, 28 Jul 2013 10:32:09 -0400
+
+jenkins-job-builder (0.4.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/patches: Add upstream fixes for packaging
+    - 0001-Documentation-fixes-to-make-Sphinx-happy.patch
+    - 0002-Remove-setuptools-git-from-setup.py.patch
+  * debian/control:
+    - Bump Standards-Version to 3.9.4
+    - Remove Build-Depends on python3-sphinx (Closes: 697787)
+
+ -- Paul Belanger <paul.belanger@polybeacon.com>  Wed, 30 Jan 2013 20:38:28 -0500
+
+jenkins-job-builder (0.3.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #693145)
+
+ -- Paul Belanger <paul.belanger@polybeacon.com>  Tue, 20 Nov 2012 16:07:22 -0500

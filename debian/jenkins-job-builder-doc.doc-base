@@ -1,0 +1,9 @@
+Document: jenkins-job-builder
+Title: Jenkins Job Builder Documentation
+Author: OpenStack
+Abstract: Sphinx documentation for Jenkins Job Builder
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/jenkins-job-builder-doc/html/index.html
+Files: /usr/share/doc/jenkins-job-builder-doc/html/*

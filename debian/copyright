@@ -1,0 +1,46 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Jenkins Job Builder
+Upstream-Contact: OpenStack Continuous Integration Administrators <openstack-ci-admins@lists.launchpad.net>
+Source: https://github.com/openstack-ci/jenkins-job-builder
+
+Files: *
+Copyright: 2011 2012, OpenStack, LLC.
+           2012 AT&T Labs, Yun Mao <yunmao@gmail.com>
+           2012 Hewlett-Packard Development Company, L.P.
+           2012 Varnish Software AS
+           2020 Liberty Global B.V.
+           2020 Openstack Foundation
+License: Apache-2.0
+
+Files: jenkins_jobs/sphinx/yaml.py
+Copyright: 2012      Hewlett-Packard Development Company, L.P.
+           2007-2011 the Sphinx team
+License: Apache-2.0-or-BSD-2-clause
+
+Files: debian/*
+Copyright: 2012-2013 Paul Belanger <paul.belanger@polybeacon.com>
+           2014      Michael Prokop <mika@debian.org>
+           2014      Fathi Boudra <fabo@debian.org>
+           2014      Tollef Fog Heen <tfheen@debian.org>
+           2015-2016 Thomas Goirand <zigo@debian.org>
+           2018-2021 Mattia Rizzolo <mattia@debian.org>
+License: Apache-2.0
+
+License: Apache-2.0-or-BSD-2-clause
+ See individual licenses below.
+
+License: Apache-2.0
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at
+ .
+      http://www.apache.org/licenses/LICENSE-2.0
+ .
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ License for the specific language governing permissions and limitations
+ under the License.
+ .
+ On Debian-based systems the full text of the Apache version 2.0 license
+ can be found in /usr/share/common-licenses/Apache-2.0.
