@@ -1,7 +1,7 @@
 Source: jenkins-job-builder
 Section: python
 Priority: optional
-Maintainer: Debian OpenStack <team+openstack@tracker.debian.org>
+Maintainer: Scibian Project <packaging.org>
 Uploaders:
  Thomas Goirand <zigo@debian.org>,
  Mattia Rizzolo <mattia@debian.org>,
@@ -32,8 +32,8 @@ Build-Depends-Indep:
 Standards-Version: 4.5.1
 Rules-Requires-Root: no
 Homepage: http://ci.openstack.org/jenkins-job-builder
-Vcs-Browser: https://salsa.debian.org/openstack-team/third-party/jenkins-job-builder
-Vcs-Git: https://salsa.debian.org/openstack-team/third-party/jenkins-job-builder.git
+Vcs-Browser: https://github.com/scibian/jenkins-job-builder-3.8.0
+Vcs-Git: https://github.com/scibian/jenkins-job-builder-3.8.0.git
 
 Package: jenkins-job-builder
 Architecture: all
