@@ -8,7 +8,7 @@ Uploaders:
  Paul Belanger <paul.belanger@polybeacon.com>,
 Build-Depends:
  debhelper (>= 12.8~),
- debhelper-compat (= 13),
+ debhelper (>= 10),
  dh-python,
  python3-all,
  python3-pbr,
