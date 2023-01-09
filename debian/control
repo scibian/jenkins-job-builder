@@ -15,7 +15,6 @@ Build-Depends:
  python3-setuptools,
 Build-Depends-Indep:
  dh-sequence-python3,
- dh-sequence-sphinxdoc <!nodoc>,
  python3-fasteners,
  python3-fixtures <!nocheck>,
  python3-jenkins (>= 0.4.15),
